@@ -51,14 +51,17 @@
     }
   </script>
 </head>
-<body onload="checkAuthState()">
-  <h1>Login Page</h1>
-  <form>
+<body onload="checkAuthState()" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" bgcolor="bisque">
+  <h1 style="text-decoration:underline;" align="center">Login Page</h1>
+      <img src="logo.png" style="position: absolute; width:60px;height:60px; top:10px; border-radius: 1em;">
+  <form align="center">
     <label for="email">Email:</label>
     <input type="email" id="email" required><br><br>
     <label for="password">Password:</label>
     <input type="password" id="password" required><br><br>
     <button type="button" onclick="login()">Login</button>
+    <br>
+    <p style="color:red">PLEASE NOTE: Do not put your actual account password.</p>
   </form>
 </body>
 </html>
