@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <!-- Add Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+
+  <script>
+    // Initialize Firebase with your project's config
+    var firebaseConfig = {
+        apiKey: "AIzaSyC4sdrMRchjCvWQ6NiQ-ywr1pGZOWWGBl8",
+  authDomain: "sk-comp-teespring-database.firebaseapp.com",
+  projectId: "sk-comp-teespring-database",
+  storageBucket: "sk-comp-teespring-database.firebasestorage.app",
+  messagingSenderId: "247863691268",
+  appId: "1:247863691268:web:73d9253e5fa6f7a9640d51",
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script>
+    // Function to check if a user is logged in or not
+    function checkAuthState() {
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in, proceed to the website
+          window.location.href = "index.html";
+        } else {
+          // No user is signed in, stay on the login page
+        }
+      });
+    }
+
+    // Function to handle the login form submission
+    function login() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(function() {
+          // Login successful, redirect to the homepage
+          window.location.href = "index.html";
+        })
+        .catch(function(error) {
+          // Handle errors here
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log("Login error:", errorCode, errorMessage);
+        });
+    }
+  </script>
+</head>
+<body onload="checkAuthState()">
+  <h1>Login Page</h1>
+  <form>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br><br>
+    <button type="button" onclick="login()">Login</button>
+  </form>
+</body>
+</html>
+
