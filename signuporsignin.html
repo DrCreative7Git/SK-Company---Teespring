@@ -13,7 +13,7 @@
   font-family: sans-serif;
 }
 body {
-  background-color: bisque;
+  background-color: #7b60bb;
 }
 h1 {
   margin-bottom: 8%;
@@ -83,8 +83,8 @@ button:hover {
   border: none;
 }
 </style>
-        <img src="logo.png" style="position: absolute; width:60px;height:60px; top:10px; border-radius: 1em;">
 <body>
+  <img src="logo.png" style="position: absolute; width:60px;height:60px; top:10px; border-radius: 1em;">
     <div class = "login-container">
         <div id= "main">
             <h1>Sign In</h1>
@@ -92,7 +92,7 @@ button:hover {
 <input id = "password" type = "password" placeholder = "Password"></input>
 <button id = "submit">Submit</button>
 <p><span>or</span></p>
-<button id = "sign-up">Sign Up</button>
+<button id = "sign-up">Sign In</button>
         </div>
         
         <div id = "create-acct">
@@ -193,8 +193,9 @@ submitButton.addEventListener("click", function() {
       // Signed in
       const user = userCredential.user;
       console.log("Success! Welcome back!");
-      window.alert("Success! Welcome back! (This will open a new window!)");
+      window.alert("Success! Welcome back, " + email + "!");
       document.getElementById("openidxhtml").click();
+      
       // ...
     })
     .catch((error) => {
